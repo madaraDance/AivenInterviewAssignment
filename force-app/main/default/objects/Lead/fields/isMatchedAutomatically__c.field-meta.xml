@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>isMatchedAutomatically__c</fullName>
-    <defaultValue>false</defaultValue>
+    <defaultValue>0</defaultValue>
     <description>Tells if the Lead was matched with Account Automatically.</description>
+    <externalId>false</externalId>
     <label>isMatchedAutomatically</label>
+    <precision>1</precision>
+    <required>false</required>
+    <scale>0</scale>
     <trackFeedHistory>false</trackFeedHistory>
-    <type>Checkbox</type>
+    <type>Number</type>
+    <unique>false</unique>
 </CustomField>

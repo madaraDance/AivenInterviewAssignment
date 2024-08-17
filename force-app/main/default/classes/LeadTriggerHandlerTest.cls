@@ -66,7 +66,7 @@ private class LeadTriggerHandlerTest {
         List<Lead> leadListFromDB = [SELECT isMatchedAutomatically__c FROM Lead];
         
         for (Lead l: leadListFromDB) {
-            System.assertEquals(false, l.isMatchedAutomatically__c, 'Automation re-matched lead'); 
+            System.assertEquals(0, l.isMatchedAutomatically__c, 'Automation re-matched lead'); 
         }
         
     }

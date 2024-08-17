@@ -102,6 +102,6 @@ public class LeadTriggerHandler {
 		if (!String.isBlank(lead.Industry)) {
 			lead.Industry = acc.Industry;
 		}
-		lead.isMatchedAutomatically__c = true;
+		lead.isMatchedAutomatically__c = 1;
 	}
 }
