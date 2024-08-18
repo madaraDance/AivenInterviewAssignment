@@ -10,6 +10,16 @@
         <masterLabel>MatchPercentToday</masterLabel>
         <scale>0</scale>
     </aggregates>
+    <aggregates>
+        <calculatedFormula>RowCount</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA2</developerName>
+        <downGroupingContext>GRAND_SUMMARY</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Total Rows</masterLabel>
+        <scale>0</scale>
+    </aggregates>
     <columns>
         <field>FIRST_NAME</field>
     </columns>

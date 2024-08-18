@@ -22,7 +22,9 @@ public class LeadTriggerHandler {
 			if (!accList.isEmpty()) {
 				for (Account acc : accList) {
 					accNameMap.put(acc.Name.toLowerCase(), acc);
-					accDomainMap.put(acc.Domain__c.toLowerCase(), acc);
+					if (!String.isBlank(acc.Domain__c)){
+						accDomainMap.put(acc.Domain__c.toLowerCase(), acc);
+					}	
 				}
 
 				List<Lead> leadListWithCompanyName = matchLeadsToAccountsByDomain(leadListWithoutAccounts, accDomainMap);

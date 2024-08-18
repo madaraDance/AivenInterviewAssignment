@@ -14,6 +14,54 @@
             <dashboardComponent>
                 <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
                 <chartSummary>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>Metric</componentType>
+                <decimalPrecision>-1</decimalPrecision>
+                <displayUnits>Auto</displayUnits>
+                <groupingSortProperties/>
+                <header>Total Amount of Lead&apos;s</header>
+                <indicatorBreakpoint1>33.0</indicatorBreakpoint1>
+                <indicatorBreakpoint2>67.0</indicatorBreakpoint2>
+                <indicatorHighColor>#0C0D0D</indicatorHighColor>
+                <indicatorLowColor>#16325C</indicatorLowColor>
+                <indicatorMiddleColor>#0D0D0C</indicatorMiddleColor>
+                <report>OpneReportFolder/Leads_Mathced_to_Account_Report</report>
+                <showRange>false</showRange>
+            </dashboardComponent>
+            <rowIndex>0</rowIndex>
+            <rowSpan>4</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>4</colSpan>
+            <columnIndex>4</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <chartSummary>
+                    <column>RowCount</column>
+                </chartSummary>
+                <componentType>Metric</componentType>
+                <decimalPrecision>-1</decimalPrecision>
+                <displayUnits>Auto</displayUnits>
+                <groupingSortProperties/>
+                <header>Today&apos;s Amount of Leads</header>
+                <indicatorBreakpoint1>20.0</indicatorBreakpoint1>
+                <indicatorBreakpoint2>40.0</indicatorBreakpoint2>
+                <indicatorHighColor>#191A1A</indicatorHighColor>
+                <indicatorLowColor>#100F0F</indicatorLowColor>
+                <indicatorMiddleColor>#030303</indicatorMiddleColor>
+                <report>OpneReportFolder/Todays_Leads_Match_Percent</report>
+                <showRange>false</showRange>
+            </dashboardComponent>
+            <rowIndex>0</rowIndex>
+            <rowSpan>4</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>4</colSpan>
+            <columnIndex>0</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <chartSummary>
                     <axisBinding>y</axisBinding>
                     <column>FORMULA1</column>
                 </chartSummary>
@@ -35,7 +83,7 @@
                 <showTotal>false</showTotal>
                 <showValues>false</showValues>
             </dashboardComponent>
-            <rowIndex>0</rowIndex>
+            <rowIndex>4</rowIndex>
             <rowSpan>8</rowSpan>
         </dashboardGridComponents>
         <dashboardGridComponents>
@@ -65,7 +113,7 @@
                 <showTotal>true</showTotal>
                 <showValues>false</showValues>
             </dashboardComponent>
-            <rowIndex>0</rowIndex>
+            <rowIndex>4</rowIndex>
             <rowSpan>8</rowSpan>
         </dashboardGridComponents>
         <numberOfColumns>12</numberOfColumns>
