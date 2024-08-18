@@ -1,6 +1,6 @@
 public with sharing class DomainExtractor {
     public static String DomainExtractorFromLeadEmail(String email) {
-        return null;
+        return email.split('@').get(1);
     }
 
     public static String DomainExtractorFromAccountWebSite(String website) {

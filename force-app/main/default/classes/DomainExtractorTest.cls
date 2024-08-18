@@ -10,9 +10,7 @@ private class DomainExtractorTest {
         Account acc6 =TestDataFactory.createCustomAccount('Test Account 6', 'http://youtube.com.uk');
 
 
-        List<Account> accList = new List<Account>{acc, acc2, acc3, acc4, acc5};
-
-        insert accList;
+        insert new List<Account>{acc, acc2, acc3, acc4, acc5};
 
         List<Account> accListFromDB = [SELECT Id, Name, Domain__c FROM Account];
 
@@ -22,5 +20,15 @@ private class DomainExtractorTest {
             }
             System.assertEquals('youtube.com', a.Domain__c);
         }
+    }
+
+    @isTest
+    static void DomainExtractorFromLeadEmailTest() {
+        String emailDomain = DomainExtractor.DomainExtractorFromLeadEmail('john@logint.com');
+        System.assertEquals('logint.com', emailDomain);
+        emailDomain = DomainExtractor.DomainExtractorFromLeadEmail('jane@logsol.com.uk');
+        System.assertEquals('logsol.com.uk', emailDomain);
+        emailDomain = DomainExtractor.DomainExtractorFromLeadEmail('jane@parentCo.company.com');
+        System.assertEquals('parentCo.company.com', emailDomain);
     }
 }

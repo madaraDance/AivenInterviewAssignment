@@ -7,13 +7,15 @@ public class LeadTriggerHandler {
 		List<String> domainSearchPatterns = new List<String>();
 		
 		for (Lead lead : leadList){
+			
 			if (lead.Account__c == null) {
 				leadListWithoutAccounts.add(lead);
+
 				if (!String.isBlank(lead.Email)) {
-					domainSearchPatterns.add(lead.Email.split('@').get(1));
-				} else {
-					nameSearchPatterns.add('%' + lead.Company.toLowerCase() + '%');
+					String emailDomain = DomainExtractor.DomainExtractorFromLeadEmail(lead.Email);
+					domainSearchPatterns.add(emailDomain);
 				}
+				nameSearchPatterns.add('%' + lead.Company.toLowerCase() + '%');
 			}
 		}
 
@@ -26,12 +28,14 @@ public class LeadTriggerHandler {
 						accDomainMap.put(acc.Domain__c.toLowerCase(), acc);
 					}	
 				}
+				if (!accDomainMap.isEmpty()){
+					leadListWithoutAccounts = matchLeadsToAccountsByDomain(leadListWithoutAccounts, accDomainMap); //returns list with values or emtpy list.
+				}
 
-				List<Lead> leadListWithCompanyName = matchLeadsToAccountsByDomain(leadListWithoutAccounts, accDomainMap);
-				if (leadListWithCompanyName != null){
-					List<Lead> leadListWithoutMatch = directMatchLeadsToAccountsByCompanyName(leadListWithCompanyName, accNameMap);
-					if (leadListWithoutMatch.size() > 0) {
-						partialMatchLeadsToAccountsByCompanyName(leadListWithoutMatch, accList);
+				if (!leadListWithoutAccounts.isEmpty()){
+					leadListWithoutAccounts = directMatchLeadsToAccountsByCompanyName(leadListWithoutAccounts, accNameMap); // returns list with values or emtpy list.
+					if (!leadListWithoutAccounts.isEmpty()) {
+						partialMatchLeadsToAccountsByCompanyName(leadListWithoutAccounts, accList); // void method
 					}
 				}
 			}
@@ -39,19 +43,22 @@ public class LeadTriggerHandler {
 	}
 
 	public static List<Lead> matchLeadsToAccountsByDomain(List<Lead> leadList, Map<String, Account> accMap){
-		List<Lead> leadListWithoutMatchAndWithCompanyName = new List<Lead>();
-		if (leadList == null || leadList.isEmpty()){
-			return null;
-		}
+		List<Lead> leadListWithoutMatch = new List<Lead>();
 		for (Lead lead : leadList){
-			String domainFromEmail = lead.Email?.split('@').get(1);
+
+			if (String.isBlank(lead.Email)) {
+				leadListWithoutMatch.add(lead);
+				continue; // if lead without email continue to next one.
+			}
+
+			String domainFromEmail = DomainExtractor.DomainExtractorFromLeadEmail(lead.Email);
 			if (accMap.get(domainFromEmail) != null){
 				modifyLeadWithMatchedAccount(lead, accMap.get(domainFromEmail));
 			} else {
-				leadListWithoutMatchAndWithCompanyName.add(lead);	
+				leadListWithoutMatch.add(lead);	
 			}
 		}
-		return leadListWithoutMatchAndWithCompanyName;
+		return leadListWithoutMatch;
 	}
 
 	public static List<Lead> directMatchLeadsToAccountsByCompanyName(List<Lead> leadListWithCompanyName, Map<String, Account> accMap){
@@ -68,11 +75,9 @@ public class LeadTriggerHandler {
 	}
 
 	public static void partialMatchLeadsToAccountsByCompanyName(List<Lead> leadList, List<Account> accList){
-		Set<String> nameSearchPatterns  = new Set<String>();
-
 		for (Lead lead : leadList) {
 			if (lead.Company.length() < 6) {
-				continue;
+				continue; // Partial Matching is not available for leads with company field length below 6.
 			}
 
 			Account matchedAccount = null;
@@ -83,10 +88,9 @@ public class LeadTriggerHandler {
 				String lowerCaseName = acc.Name.toLowerCase();
 				if (lowerCaseName.contains(lowerCaseCompany)){
 					nameMatches++;
-					//if(lowerCaseName.getLevenshteinDistance(lowerCaseCompany, 3) != -1){
-					if (lowerCaseName.length() - lowerCaseCompany.length() < 4){
+					//if (lowerCaseName.length() - lowerCaseCompany.length() < 4){
 						matchedAccount = acc;
-					}
+					//}
 				}
 				if (nameMatches > 1) {
 					break;
