@@ -28,10 +28,36 @@
       * http:\\
       * www\\.
 
+## Automations with Apex Code
+
 ### Apex Triggers
 
+1. **AccountTrigger**: Trigger on the Account object that executes **Before Insert**.
+2. **LeadTrigger**: Trigger on the Lead object that executes **Before Insert**.
 
 ### Apex Classes and Methods
+
+1. **AccountTriggerHandler**: Called by **AccountTrigger** during the **Before Insert** operation.
+   1.1. Contains the following method:
+      * **setDomainFieldFromWebsite**: Designed to loop through the list of new accounts and populate the Domain field from the Website field.
+
+2. **DomainExtractor**: Contains methods for domain extraction.
+   2.1. Contains the following methods:
+      * **DomainExtractorFromAccountWebsite**: Designed to retrieve the domain part from the Account's Website field.
+      * **DomainExtractorFromLeadEmail**: Designed to retrieve the domain part from the Lead's Email field.
+
+3. **LeadTriggerHandler**: Called by **LeadTrigger** during the **Before Insert** operation.
+   3.1. Contains the following method:
+      * **matchLeadsToAccounts**: Designed to loop through the list of new leads and match them with appropriate accounts.
+
+4. **MatchLeadsToAccountsHelper**: Called by the **matchLeadsToAccounts** method from **LeadTriggerHandler** during the **Before Insert** operation.
+   4.1. Contains the following methods:
+      * **matchLeadsToAccountsByDomain**: Designed for direct matching of Leads and Accounts based on the equality of their domains.
+      * **directMatchLeadsToAccountsByCompanyName**: Designed for direct matching of Leads and Accounts based on the equality of their names.
+      * **partialMatchLeadsToAccountsByCompanyName**: Designed for partial matching of Leads and Accounts based on the similarity of their names.
+      * **modifyLeadWithMatchedAccount**: Designed to modify Lead fields in case a match between an Account and Lead is found.
+
+
 
 
 ### Apex Test Classes
