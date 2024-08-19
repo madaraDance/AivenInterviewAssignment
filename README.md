@@ -3,6 +3,7 @@
    ## Table of Contents
    - [Solution Overview](#solution-overview)
    - [Salesforce Project Deployment Guide](#salesforce-project-deployment-guide)
+   - [Testing](#testing)
 
 # Solution Overview
 
@@ -181,16 +182,22 @@ Before you begin, ensure you have the following:
 2. **Navigate to Setup to check** that the custom fields, triggers, classes, and other components have been deployed successfully.
 3. **Test the functionality** to ensure everything is working as expected.
 
-   3.1 One way to test is to **Navigate to Developer Console**.
+# Testing
 
-   3.2 In the upper navigation menu, **click on "Test" and select "Run All"** from the dropdown.
+To ensure the solution works correctly, follow these steps to run the provided tests:
 
-   3.3 After the tests have executed, **click on the "Tests" tab in the bottom menu**.
+1. **Open the Developer Console**:
+   - Navigate to and open the Developer Console in your Salesforce Org.
 
-   3.4 **Open the First Folder and ensure**:
-      * **DomainExtractorTest class** has **2 tests passed**.
+2. **Run All Tests**:
+   - In the Developer Console, click on **"Test"** in the upper navigation menu and select **"Run All"** from the dropdown.
 
-      * **LeadTriggerhandlerTest class** has **6 tests passed**.
+3. **Check Test Results**:
+   - After the tests have executed, go to the **"Tests"** tab in the bottom menu.
+   - Open the **"First Folder"** and verify that:
+     - **`DomainExtractorTest`** class has **2 tests passed**.
+     - **`LeadTriggerHandlerTest`** class has **6 tests passed**.
+
 
 
 
