@@ -1,13 +1,14 @@
 public with sharing class MatchLeadToAccountHelper {
-    public static List<Lead> matchLeadsToAccountsByDomain(List<Lead> leadList, Map<String, Account> accMap){
+    
+    private static final Integer MIN_LEAD_COMPANY_LENGTH = 4;
+
+    public static List<Lead> matchLeadsToAccountsByDomain(List<Lead> leadList, Map<String, Account> accMap){ //domainToAccount
         List<Lead> leadListWithoutMatch = new List<Lead>();
         for (Lead lead : leadList) {
-
             if (String.isBlank(lead.Email)) {
                 leadListWithoutMatch.add(lead);
                 continue; // if lead without email continue to next one.
             }
-
             String domainFromEmail = DomainExtractor.DomainExtractorFromLeadEmail(lead.Email);
             if (accMap.get(domainFromEmail) != null) {
                 modifyLeadWithMatchedAccount(lead, accMap.get(domainFromEmail));
@@ -33,21 +34,17 @@ public with sharing class MatchLeadToAccountHelper {
 
     public static void partialMatchLeadsToAccountsByCompanyName(List<Lead> leadList, List<Account> accList){
         for (Lead lead : leadList) {
-            if (lead.Company.length() < 6) {
-                continue; // Partial Matching is not available for leads with company field length below 6.
+            if (lead.Company.length() < MIN_LEAD_COMPANY_LENGTH) {
+                continue; // Partial Matching is not available for leads with company field length below 4.
             }
-
             Account matchedAccount = null;
-            String lowerCaseCompany = lead.Company.toLowerCase();
+            String lowerCaseLeadCompany = lead.Company.toLowerCase();
             Integer nameMatchesCounter = 0;
-
             for (Account acc : accList) {
-                String lowerCaseName = acc.Name.toLowerCase();
-                if (lowerCaseName.contains(lowerCaseCompany)) {
+                String lowerCaseAccName = acc.Name.toLowerCase();
+                if (lowerCaseAccName.contains(lowerCaseLeadCompany)) {
                     nameMatchesCounter++;
-                    //if (lowerCaseName.length() - lowerCaseCompany.length() < 4){
-                        matchedAccount = acc;
-                    //}
+                    matchedAccount = acc;
                 }
                 if (nameMatchesCounter > 1) {
                     break;
