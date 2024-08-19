@@ -29,13 +29,13 @@ public class LeadTriggerHandler {
 					}	
 				}
 				if (!accDomainMap.isEmpty()) { //if accDomainMap is empty no leads to match with domain comaprisson.
-					leadListWithoutAccounts = matchLeadsToAccountsHelper.matchLeadsToAccountsByDomain(leadListWithoutAccounts, accDomainMap); //returns list with values or emtpy list.
+					leadListWithoutAccounts = MatchLeadToAccountHelper.matchLeadsToAccountsByDomain(leadListWithoutAccounts, accDomainMap); //returns list with values or emtpy list.
 				}
 
 				if (!leadListWithoutAccounts.isEmpty()) {
-					leadListWithoutAccounts = matchLeadsToAccountsHelper.directMatchLeadsToAccountsByCompanyName(leadListWithoutAccounts, accNameMap); // returns list with values or emtpy list.
+					leadListWithoutAccounts = MatchLeadToAccountHelper.directMatchLeadsToAccountsByCompanyName(leadListWithoutAccounts, accNameMap); // returns list with values or emtpy list.
 					if (!leadListWithoutAccounts.isEmpty()) {
-						matchLeadsToAccountsHelper.partialMatchLeadsToAccountsByCompanyName(leadListWithoutAccounts, accList); // void method
+						MatchLeadToAccountHelper.partialMatchLeadsToAccountsByCompanyName(leadListWithoutAccounts, accList); // void method
 					}
 				}
 			}

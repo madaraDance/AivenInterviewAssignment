@@ -8,12 +8,13 @@
         OR(
             BEGINS(Website, &quot;http://&quot;),
             BEGINS(Website, &quot;https://&quot;),
-            BEGINS(Website, &quot;www\\.&quot;)
+            BEGINS(Website, &quot;www\\.&quot;),
+            BEGINS(Website, &quot;www.&quot;)
         )
     ),
     ISBLANK(Website) = FALSE
 )</errorConditionFormula>
     <errorDisplayField>Website</errorDisplayField>
     <errorMessage>Incorrect format.
-Should begin with &quot;http://&quot; or &quot;https://&quot; or &quot;www&quot;.</errorMessage>
+Should begin with &quot;http://&quot; or &quot;https://&quot; or &quot;www&quot; or &quot;www\\.&quot;</errorMessage>
 </ValidationRule>
