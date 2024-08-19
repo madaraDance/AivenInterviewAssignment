@@ -59,7 +59,7 @@ public with sharing class TestDataFactory {
         if(doInsert) {
             insert leadList;
         }
-    
+
         return leadList;
     }
 
@@ -100,7 +100,7 @@ public with sharing class TestDataFactory {
         if (doInsert) {
             insert accountList;
         }
-    
+
         return accountList;
     }
 
@@ -121,8 +121,6 @@ public with sharing class TestDataFactory {
         
         insert leadList;
 
-        return leadList;
+        return leadList;  
     }
-
-
 }

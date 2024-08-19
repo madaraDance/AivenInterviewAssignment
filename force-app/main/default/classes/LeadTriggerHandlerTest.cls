@@ -8,14 +8,12 @@ private class LeadTriggerHandlerTest {
         Set<Id> leadIds = new Set<Id>();
         Set<Id> accIds = new Set<Id>();
 
-        System.debug(leadList);
         for (lead lead : leadList) {
             leadIds.add(lead.Id);
         }
 
         for (Lead lead : [SELECT Name, Account__c FROM Lead WHERE Id IN: leadIds]){
             System.assertNotEquals(null, lead.Account__c, 'Lead was not Matched to Account');
-            System.debug(lead);
             accIds.add(lead.Account__c);
         }
 
@@ -65,12 +63,10 @@ private class LeadTriggerHandlerTest {
         for (Lead l: leadListFromDB) {
             System.assertEquals(0, l.isMatchedAutomatically__c, 'Automation re-matched lead'); 
         }
-        
     }
 
     @isTest
     static void namePartialMatchingTest(){
-
          // Create Accounts with varying names to test partial matching.
          Account acc1 = new Account(Name = 'TechCorp International');
          Account acc2 = new Account(Name = 'GlobalTech Solutions');
@@ -89,14 +85,11 @@ private class LeadTriggerHandlerTest {
         List<Lead> leadListFromDB =  [SELECT Account__c, isMatchedAutomatically__c FROM LEAD WHERE Account__c != null];
 
 
-        System.assertEquals(3, leadListFromDB.size());
-            
-        
+        System.assertEquals(3, leadListFromDB.size());   
     }
 
     @isTest
     static void namePartialMatchingEdgeTest(){
-
         // Create Accounts with varying names to test partial matching.
         Account acc1 = new Account(Name = 'Logistics International');
         Account acc2 = new Account(Name = 'Logistics Solutions');
@@ -113,7 +106,5 @@ private class LeadTriggerHandlerTest {
 
 
         System.assertEquals(0 , leadListFromDB.size(), 'Leads wrongly matched');
-        
     }
-
 }

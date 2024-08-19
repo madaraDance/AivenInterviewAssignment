@@ -4,7 +4,6 @@ public with sharing class DomainExtractor {
     }
 
     public static String DomainExtractorFromAccountWebSite(String website) {
-
         String domain = website.replaceAll('^(http://|https://)', '').replaceAll('^www\\.', '');
         Integer endIndex = domain.indexOf('/');
 
@@ -14,5 +13,4 @@ public with sharing class DomainExtractor {
 
         return domain;
     }
-
 }

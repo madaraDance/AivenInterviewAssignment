@@ -65,6 +65,23 @@
 
 ## Apex Test Classes and Methods
 
+## Test Data
+
+**TestDataFactory** provides methods for generating test data:
+
+### For Leads:
+- `createCustomLead()`: Creates a customized Lead.
+- `createLeadWithoutEmail()`: Creates a Lead without an email.
+- `createLeadWithEmail()`: Creates a Lead with an email.
+- `createTenUnrelatedToAccountsLeads()`: Creates ten Leads not linked to any Accounts.
+
+### For Accounts:
+- `createCustomAccount()`: Creates a customized Account.
+- `createAccountWithWebsite()`: Creates an Account with a website.
+- `createFiveAccountWithoutLeads()`: Creates five Accounts without Leads.
+- `createAccountsWithLeadsThatMatchButNotLinked()`: Creates Accounts and Leads with matching but unlinked data.
+
+
 #### 1. **LeadTriggerHandlerTest**
    - **Purpose:** Tests lead and account matching functionalities within the **LeadTriggerHandler**.
 

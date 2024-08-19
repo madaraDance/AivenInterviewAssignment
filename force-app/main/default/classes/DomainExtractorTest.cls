@@ -30,5 +30,5 @@ private class DomainExtractorTest {
         System.assertEquals('logsol.com.uk', emailDomain);
         emailDomain = DomainExtractor.DomainExtractorFromLeadEmail('jane@parentCo.company.com');
         System.assertEquals('parentCo.company.com', emailDomain);
-    }
+    }   
 }
