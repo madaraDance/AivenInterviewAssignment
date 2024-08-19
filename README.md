@@ -60,10 +60,10 @@ Before you begin, ensure you have the following:
 
    3.1 One way to test is to **Navigate to Developer Console**.
 
-   3.2 In the **upper navigation Menu click on Test** and **in pop-up menu click on Run All**.
+   3.2 In the upper navigation menu, **click on "Test" and select "Run All"** from the dropdown.
 
-   3.3 After test **execution click on Test Window in the bottom Menu**.
-   
+   3.3 After the tests have executed, **click on the "Tests" tab in the bottom menu**.
+
    3.4 **Open the First Folder and ensure**:
       * **DomainExtractorTest class** has **2 tests passed**.
       * **LeadTriggerhandlerTest class** has **6 tests passed**.
