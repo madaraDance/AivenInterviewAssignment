@@ -6,6 +6,15 @@
 
 # Solution Overview
 
+## Data Model changes:
+
+   1. **Account** object was **modified with one additional field**:
+      * Domain (Domain__c) text field to hold domain name from Website field.
+   
+   2. **Lead** object was **modified with two additional fields**:
+      * Account (Account__c) lookup field to Account. Desgined to create relationship between Account and Lead objects.
+      * isMatchedAutomatically (isMatchedAutomatically__c) nubmer field. Desgined to hold values 0 or 1, false or true respectivily. Used in the Reports and Dashboard.
+
 
 # Salesforce Project Deployment Guide
 
