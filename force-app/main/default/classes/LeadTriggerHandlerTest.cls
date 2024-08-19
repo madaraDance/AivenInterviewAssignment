@@ -75,14 +75,15 @@ private class LeadTriggerHandlerTest {
          Account acc1 = new Account(Name = 'TechCorp International');
          Account acc2 = new Account(Name = 'GlobalTech Solutions');
          Account acc3 = new Account(Name = 'Innovative Technologies');
-         insert new List<Account>{acc1, acc2, acc3};
+         Account acc4 = new Account(Name = 'Wolt');
+         insert new List<Account>{acc1, acc2, acc3, acc4};
  
          // Create Leads with company names that will partially match the Accounts.
          Lead lead1 = TestDataFactory.createCustomLead('John', 'Smith', 'TechCorp', 'contacted', 'john@techcorp.com'); 
          Lead lead2 = TestDataFactory.createCustomLead('Jane', 'Doe', 'GlobalTech', 'contacted', 'jane@globaltech.com');
          Lead lead3 = TestDataFactory.createCustomLead('Sarah', 'Johnson', 'Innovative Tech', 'contacted', 'sarah@inntech.com');
          Lead lead4 = TestDataFactory.createCustomLead('Jim', 'Brown', 'Global Innovation', 'contacted', 'jim@globalinnovation.com'); // No match at all
-         Lead lead5 = TestDataFactory.createCustomLead('Jim', 'Jons', 'Wolt', 'contacted', 'jim@wolt.com'); // company name too short no partial matching
+         Lead lead5 = TestDataFactory.createCustomLead('Jim', 'Jons', 'Wol', 'contacted', 'jim@wolt.com'); // company name too short no partial matching
          insert new List<Lead>{lead1, lead2, lead3, lead4, lead5};
 
         List<Lead> leadListFromDB =  [SELECT Account__c, isMatchedAutomatically__c FROM LEAD WHERE Account__c != null];
