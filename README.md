@@ -17,4 +17,12 @@ Before you begin, ensure you have the following:
 3. **Run the following command** to clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
+   git clone https://github.com/madaraDance/AivenInterviewAssignment.git
+
+4.**Navigate into the cloned repository**:
+   
+   ```bash
+   cd your-repo-name
+
+## Step 2: Authenticate to Salesforce
+
