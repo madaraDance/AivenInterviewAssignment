@@ -24,9 +24,9 @@
 
 1. The **Account** object was modified with a Validation rule on field Website (`Website`):
    * Validation rule checks that Website's field value begins in allowed formats:
-      * https:\\
-      * http:\\
-      * www\\.
+      * https:\\\\
+      * http:\\\\
+      * www\\\\.
 
 ## Automations with Apex Code
 
@@ -37,27 +37,29 @@
 
 ### Apex Classes and Methods
 
-1. **AccountTriggerHandler**: Called by **AccountTrigger** during the **Before Insert** operation.
-   1.1. Contains the following method:
-      * **setDomainFieldFromWebsite**: Designed to loop through the list of new accounts and populate the Domain field from the Website field.
+#### 1. **AccountTriggerHandler**
+   - **Purpose:** Handles operations triggered by the **AccountTrigger** before new accounts are inserted.
+   - **Method:**
+     - **setDomainFieldFromWebsite**: Loops through new accounts and populates the Domain field with the domain extracted from the Website field.
 
-2. **DomainExtractor**: Contains methods for domain extraction.
-   2.1. Contains the following methods:
-      * **DomainExtractorFromAccountWebsite**: Designed to retrieve the domain part from the Account's Website field.
-      * **DomainExtractorFromLeadEmail**: Designed to retrieve the domain part from the Lead's Email field.
+#### 2. **DomainExtractor**
+   - **Purpose:** Provides methods for extracting domain information.
+   - **Methods:**
+     - **DomainExtractorFromAccountWebsite**: Extracts the domain part from the Account's Website field.
+     - **DomainExtractorFromLeadEmail**: Extracts the domain part from the Lead's Email field.
 
-3. **LeadTriggerHandler**: Called by **LeadTrigger** during the **Before Insert** operation.
-   3.1. Contains the following method:
-      * **matchLeadsToAccounts**: Designed to loop through the list of new leads and match them with appropriate accounts.
+#### 3. **LeadTriggerHandler**
+   - **Purpose:** Manages operations triggered by the **LeadTrigger** before new leads are inserted.
+   - **Method:**
+     - **matchLeadsToAccounts**: Loops through new leads and attempts to match them with appropriate accounts.
 
-4. **MatchLeadsToAccountsHelper**: Called by the **matchLeadsToAccounts** method from **LeadTriggerHandler** during the **Before Insert** operation.
-   4.1. Contains the following methods:
-      * **matchLeadsToAccountsByDomain**: Designed for direct matching of Leads and Accounts based on the equality of their domains.
-      * **directMatchLeadsToAccountsByCompanyName**: Designed for direct matching of Leads and Accounts based on the equality of their names.
-      * **partialMatchLeadsToAccountsByCompanyName**: Designed for partial matching of Leads and Accounts based on the similarity of their names.
-      * **modifyLeadWithMatchedAccount**: Designed to modify Lead fields in case a match between an Account and Lead is found.
-
-
+#### 4. **MatchLeadsToAccountsHelper**
+   - **Purpose:** Assists the **matchLeadsToAccounts** method in matching leads to accounts.
+   - **Methods:**
+     - **matchLeadsToAccountsByDomain**: Matches leads to accounts based on domain equality.
+     - **directMatchLeadsToAccountsByCompanyName**: Matches leads to accounts based on exact company name equality.
+     - **partialMatchLeadsToAccountsByCompanyName**: Matches leads to accounts based on partial similarity of company names.
+     - **modifyLeadWithMatchedAccount**: Updates lead fields if a match with an account is found.
 
 
 ### Apex Test Classes
