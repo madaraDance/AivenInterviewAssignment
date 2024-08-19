@@ -27,7 +27,8 @@
    * Validation rule checks that Website's field value begins in allowed formats:
       * https:\\\\
       * http:\\\\
-      * www\\\\.
+      * www.
+
 
 ## Automations with Apex Code
 
