@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DashboardFolder xmlns="http://soap.sforce.com/2006/04/metadata">
     <folderShares>
-        <accessLevel>Manage</accessLevel>
-        <sharedTo>maksim.minenko@playful-koala-mt5jyl.com</sharedTo>
-        <sharedToType>User</sharedToType>
+        <accessLevel>Manage</accessLevel> <!-- Adjust access level as needed -->
+        <sharedTo>AllInternalUsers</sharedTo> <!-- Replace with your public group name -->
+        <sharedToType>Group</sharedToType>
     </folderShares>
     <name>Open Folder</name>
 </DashboardFolder>
