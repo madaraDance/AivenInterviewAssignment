@@ -113,8 +113,6 @@ private class LeadTriggerHandlerTest {
 
         System.assertEquals(0 , leadListFromDB.size(), 'Leads wrongly matched');
         
-        
     }
-
 
 }
