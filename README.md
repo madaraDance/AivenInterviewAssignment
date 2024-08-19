@@ -62,7 +62,7 @@
      - **modifyLeadWithMatchedAccount**: Updates lead fields if a match with an account is found.
 
 
-### Apex Test Classes and Methods
+## Apex Test Classes and Methods
 
 #### 1. **LeadTriggerHandlerTest**
    - **Purpose:** Tests lead and account matching functionalities within the **LeadTriggerHandler**.
@@ -105,7 +105,20 @@
      - **Assertions:** Ensure no incorrect matches for edge cases.
      - **Expected Outcome:** No wrong matches should occur for minimal similarity cases.
 
+#### 2.DomainExtractorTest
 
+   - **DomainExtractorFromAccountWebSiteTest**
+      - **Purpose:** Verify domain extraction from account website URLs.
+      - **Setup:** Insert accounts with various URL formats.
+      - **Assertions:** Check if domains are correctly extracted. (company.com, comapny.com.uk, parentCompany.company.com).
+      - **Expected Outcome:** Domains are in expected format.
+
+   - **DomainExtractorFromLeadEmailTest**
+
+      - **Purpose:** Verify domain extraction from lead email addresses.
+      - **Setup:** Test with different email addresses.
+      - **Assertions:** Ensure domains are correctly extracted (company.com, comapny.com.uk, parentCompany.company.com).
+      - **Expected Outcome:** Domains are in expected format.
 
 
 # Salesforce Project Deployment Guide
