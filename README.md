@@ -8,16 +8,33 @@
 
 ## Data Model Changes
 
+### Fields 
+
 1. The **Account** object was modified with an additional field:
    * **Domain** (`Domain__c`): A text field to hold the domain name extracted from the Website field.
    
 2. The **Lead** object was modified with two additional fields:
    * **Account** (`Account__c`): A lookup field to the Account object.
      * Designed to create a relationship between the Account and Lead objects.
-     
+
    * **isMatchedAutomatically** (`isMatchedAutomatically__c`): A number field.
      * Designed to hold values of 0 or 1, representing false or true, respectively.
 
+### Validation Rules
+
+1. The **Account** object was modified with a Validation rule on field Website (`Website`):
+   * Validation rule checks that Website's field value begins in allowed formats:
+      * https:\\
+      * http:\\
+      * www\\.
+
+### Apex Triggers
+
+
+### Apex Classes and Methods
+
+
+### Apex Test Classes
 
 
 # Salesforce Project Deployment Guide
@@ -88,6 +105,7 @@ Before you begin, ensure you have the following:
 
    3.4 **Open the First Folder and ensure**:
       * **DomainExtractorTest class** has **2 tests passed**.
+
       * **LeadTriggerhandlerTest class** has **6 tests passed**.
 
 

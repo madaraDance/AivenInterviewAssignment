@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WebSiteFieldValidation</fullName>
+    <active>true</active>
+    <description>Validates that website values start in the correct format.</description>
+    <errorConditionFormula>AND(
+    NOT(
+        OR(
+            BEGINS(Website, &quot;http://&quot;),
+            BEGINS(Website, &quot;https://&quot;),
+            BEGINS(Website, &quot;www\\.&quot;)
+        )
+    ),
+    ISBLANK(Website) = FALSE
+)</errorConditionFormula>
+    <errorDisplayField>Website</errorDisplayField>
+    <errorMessage>Incorrect format.
+Should begin with &quot;http://&quot; or &quot;https://&quot; or &quot;www&quot;.</errorMessage>
+</ValidationRule>
