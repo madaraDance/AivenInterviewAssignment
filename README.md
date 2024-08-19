@@ -14,6 +14,7 @@
 2. The **Lead** object was modified with two additional fields:
    * **Account** (`Account__c`): A lookup field to the Account object.
      * Designed to create a relationship between the Account and Lead objects.
+     
    * **isMatchedAutomatically** (`isMatchedAutomatically__c`): A number field.
      * Designed to hold values of 0 or 1, representing false or true, respectively.
 
