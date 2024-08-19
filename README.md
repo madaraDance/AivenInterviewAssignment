@@ -1,3 +1,12 @@
+# Sections
+
+   ## Table of Contents
+   - [Solution Overview](#solution-overview)
+   - [Salesforce Project Deployment Guide](#salesforce-project-deployment-guide)
+
+# Solution Overview
+
+
 # Salesforce Project Deployment Guide
 
 This guide will help you deploy the Salesforce project files from this repository to your own Salesforce org.
@@ -23,7 +32,7 @@ Before you begin, ensure you have the following:
 4. **Navigate into the cloned repository**:
    
    ```bash
-   cd your-repo-name
+   cd AivenInterviewAssignment
    ```
 
 ## Step 2: Authenticate to Salesforce
