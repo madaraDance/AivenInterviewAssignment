@@ -62,7 +62,50 @@
      - **modifyLeadWithMatchedAccount**: Updates lead fields if a match with an account is found.
 
 
-### Apex Test Classes
+### Apex Test Classes and Methods
+
+#### 1. **LeadTriggerHandlerTest**
+   - **Purpose:** Tests lead and account matching functionalities within the **LeadTriggerHandler**.
+
+   **Test Methods:**
+
+   - **leadsAndAccountsExactMatchTest**
+     - **Purpose:** Verify correct matching of leads to accounts based on exact domain and company name.
+     - **Setup:** Create and insert accounts and leads with matching attributes.
+     - **Assertions:** Check for correct lead-account associations and unique account matches.
+     - **Expected Outcome:** Leads are matched to the correct accounts; no mismatches.
+
+   - **accountsAndLeadsWithoutAnyMatch**
+     - **Purpose:** Ensure no linkage between unrelated leads and accounts.
+     - **Setup:** Create unrelated accounts and leads.
+     - **Assertions:** Verify that no leads are linked to any accounts.
+     - **Expected Outcome:** No leads should be associated with accounts.
+
+   - **leadsInsertWithoutAnyAccounts**
+     - **Purpose:** Test lead insertion when no accounts are present.
+     - **Setup:** Insert leads without pre-existing accounts.
+     - **Assertions:** Confirm correct lead creation.
+     - **Expected Outcome:** Leads are created successfully without errors.
+
+   - **insertLinkedAccountsAndLeads**
+     - **Purpose:** Validate that manually linked leads and accounts remain unchanged by automation.
+     - **Setup:** Create and link accounts and leads manually, then insert them.
+     - **Assertions:** Ensure no automatic changes to manually set links.
+     - **Expected Outcome:** Manually set links remain intact.
+
+   - **namePartialMatchingTest**
+     - **Purpose:** Test partial matching of leads to accounts based on company name similarity.
+     - **Setup:** Create accounts and leads with partially matching names.
+     - **Assertions:** Verify correct partial name matches.
+     - **Expected Outcome:** Correct leads are matched to appropriate accounts based on partial name similarities.
+
+   - **namePartialMatchingEdgeTest**
+     - **Purpose:** Test edge cases for partial name matching.
+     - **Setup:** Create accounts and leads with minimal name similarity.
+     - **Assertions:** Ensure no incorrect matches for edge cases.
+     - **Expected Outcome:** No wrong matches should occur for minimal similarity cases.
+
+
 
 
 # Salesforce Project Deployment Guide
