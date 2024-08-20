@@ -3,6 +3,7 @@
    ## Table of Contents
    - [Solution Overview](#solution-overview)
    - [Salesforce Project Deployment Guide](#salesforce-project-deployment-guide)
+   - [Package Installation](#leadtoaccountmatching-package-installation-guide)
    - [Testing](#testing)
 
 # Solution Overview
@@ -199,9 +200,9 @@ Before you begin, ensure you have the following:
 ## Step 4: Verify the Deployment
 1. **Log in to your** Salesforce org.
 2. **Navigate to Setup to check** that the custom fields, triggers, classes, and other components have been deployed successfully.
-3. **Test the functionality** to ensure everything is working as expected **CHECK TESTING PART FOR MORE DETAILS**.
+3. **Test the functionality** with instructions from **[Testing Part](#testing)** to ensure everything is working as expected.
 
-# AivenInterview Package Installation Guide
+# LeadToAccountMatching Package Installation Guide
 
 ## Step 1: Installation
 
@@ -211,6 +212,29 @@ Before you begin, ensure you have the following:
       ```
    2. Set the setting you want and click Install.
    ![alt text](image.png)
+
+## Step 2: Post-Installation
+
+1. **Navigate to the AivenInterview App**
+   - After the package is installed, go to the Salesforce App Launcher.
+   - Search for and open the `AivenInterview` app.
+
+2. **Assign the New Account Record Page**
+   - Go to `Setup` in Salesforce.
+   - In the Quick Find box, type `Object Manager` and select `Account`.
+   - Click on `Lightning Record Pages`.
+   - Locate the `NewAccountRecordPage` and click on `View` or `Edit Assignment`.
+   - Set this page as the **Record Page** for the `Account` object.
+
+3. **Save the Assignment**
+   - Ensure that the `NewAccountRecordPage` is now the active record page for the Account object.
+   - Click `Save` to confirm the assignment.
+
+4. **Test The Functionality**
+   - Navigate to **[Testing Part](#testing)** to get testing instructions.
+
+5. **Navigate to the AivenInterview App**
+   - Now everyting is done and App is ready for use.
 
 
 # Testing
