@@ -251,12 +251,14 @@ To ensure the solution works correctly, follow these steps to run the provided t
 
 2. **Run All Tests**:
    - In the Developer Console, click on **"Test"** in the upper navigation menu and select **"Run All"** from the dropdown.
+   ![alt text](image-2.png)
 
 3. **Check Test Results**:
    - After the tests have executed, go to the **"Tests"** tab in the bottom menu.
    - Open the **"First Folder"** and verify that:
      - **`DomainExtractorTest`** class has **2 tests passed**.
      - **`LeadTriggerHandlerTest`** class has **7 tests passed**.
+     ![alt text](image-3.png)
 
 
 
