@@ -175,7 +175,7 @@ This solution offers two methods of setup:
 
 ### Dashboards
    1. Lead Matching Dashboard utilies both of the reports mentioned above.
-   
+
 ![alt text](images/image6.png)
 
 
@@ -249,7 +249,7 @@ Before you begin, ensure you have the following:
 
    1. To install the package, use the following URL:
       ```bash
-      https://login.salesforce.com/packaging/installPackage.apexp?p0=04tQy0000002OSr
+      https://login.salesforce.com/packaging/installPackage.apexp?p0=04tQy0000002Oav
       ```
    2. Set the setting you want and click Install.
    ![alt text](images/image.png)
