@@ -285,7 +285,7 @@ To ensure the solution works correctly, follow these steps to run the provided t
      - **`DomainExtractorTest`** class has **2 tests passed**.
      - **`LeadTriggerHandlerTest`** class has **7 tests passed**.
    
-   ![alt text](image-3.png)
+   ![alt text](images/image-3.png)
 
 
 
