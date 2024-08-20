@@ -284,7 +284,7 @@ To ensure the solution works correctly, follow these steps to run the provided t
    - Open the **"First Folder"** and verify that:
      - **`DomainExtractorTest`** class has **2 tests passed**.
      - **`LeadTriggerHandlerTest`** class has **7 tests passed**.
-     ![alt text](image-3.png)
+   ![alt text](image-3.png)
 
 
 
