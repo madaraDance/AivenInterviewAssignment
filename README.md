@@ -202,6 +202,10 @@ Before you begin, ensure you have the following:
 2. **Navigate to Setup to check** that the custom fields, triggers, classes, and other components have been deployed successfully.
 3. **Test the functionality** with instructions from **[Testing Part](#testing)** to ensure everything is working as expected.
 
+## Step 5: Start Using the App
+   1. Go to the Salesforce App Launcher and search for and open the `AivenInterview` app.
+   2. Use it freely.
+
 # LeadToAccountMatching Package Installation Guide
 
 ## Step 1: Installation
@@ -243,6 +247,7 @@ To ensure the solution works correctly, follow these steps to run the provided t
 
 1. **Open the Developer Console**:
    - Navigate to and open the Developer Console in your Salesforce Org.
+   ![alt text](image-1.png)
 
 2. **Run All Tests**:
    - In the Developer Console, click on **"Test"** in the upper navigation menu and select **"Run All"** from the dropdown.
@@ -251,7 +256,7 @@ To ensure the solution works correctly, follow these steps to run the provided t
    - After the tests have executed, go to the **"Tests"** tab in the bottom menu.
    - Open the **"First Folder"** and verify that:
      - **`DomainExtractorTest`** class has **2 tests passed**.
-     - **`LeadTriggerHandlerTest`** class has **6 tests passed**.
+     - **`LeadTriggerHandlerTest`** class has **7 tests passed**.
 
 
 
