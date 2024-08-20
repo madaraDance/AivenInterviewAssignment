@@ -199,7 +199,19 @@ Before you begin, ensure you have the following:
 ## Step 4: Verify the Deployment
 1. **Log in to your** Salesforce org.
 2. **Navigate to Setup to check** that the custom fields, triggers, classes, and other components have been deployed successfully.
-3. **Test the functionality** to ensure everything is working as expected.
+3. **Test the functionality** to ensure everything is working as expected **CHECK TESTING PART FOR MORE DETAILS**.
+
+# AivenInterview Package Installation Guide
+
+## Step 1: Installation
+
+   1. To install the package, use the following URL:
+      ```bash
+      https://login.salesforce.com/packaging/installPackage.apexp?p0=04tQy0000002OSr
+      ```
+   2. Set the setting you want and click Install.
+   ![alt text](image.png)
+
 
 # Testing
 

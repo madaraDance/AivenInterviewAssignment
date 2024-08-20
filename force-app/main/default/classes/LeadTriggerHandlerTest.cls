@@ -93,6 +93,7 @@ private class LeadTriggerHandlerTest {
         // Create Accounts with varying names to test partial matching.
         Account acc1 = new Account(Name = 'Logistics International');
         Account acc2 = new Account(Name = 'Logistics Solutions');
+        
 
         insert new List<Account>{acc1, acc2};
 
@@ -100,11 +101,46 @@ private class LeadTriggerHandlerTest {
         Lead lead1 = TestDataFactory.createCustomLead('John', 'Smith', 'Logistics', 'contacted', 'john@logint.com'); 
         Lead lead2 = TestDataFactory.createCustomLead('Jane', 'Doe', 'Logistics', 'contacted', 'jane@logsol.com');
         
+        
         insert new List<Lead>{lead1, lead2};
 
         List<Lead> leadListFromDB =  [SELECT Account__c, isMatchedAutomatically__c FROM LEAD WHERE Account__c != null];
 
 
         System.assertEquals(0 , leadListFromDB.size(), 'Leads wrongly matched');
+    }
+
+    @isTest
+    static void completeTriggerHadlerTest(){
+        // Create Accounts with varying names to test partial matching.
+        Account acc1 = TestDataFactory.createCustomAccount('Logistics International', null);
+        Account acc3 = TestDataFactory.createCustomAccount('Innovative Technologies', 'www.inntech.com');
+        Account acc2 = TestDataFactory.createCustomAccount('GlobalTech Solutions', null);
+
+        insert new List<Account>{acc1, acc2, acc3};
+
+        // Create Leads with company names that will partially match the Accounts.
+        Lead lead1 = TestDataFactory.createCustomLead('John', 'Smith', 'Logistics', 'contacted', 'john@logint.com'); //Exact Name Match
+        Lead lead2 = TestDataFactory.createCustomLead('Jane', 'Doe', 'Innovative Tech', 'contacted', 'sarah@inntech.com'); // Domain match
+        Lead lead3 = TestDataFactory.createCustomLead('Jim', 'Brown', 'GlobalTech', 'contacted', 'jim@globalinnovation.com'); // Partial Match
+        
+        insert new List<Lead>{lead1, lead2, lead3};
+
+        List<Lead> leadListFromDB =  [SELECT Account__c, isMatchedAutomatically__c FROM LEAD WHERE Account__c != null];
+
+
+        System.assertEquals(3 , leadListFromDB.size(), 'Leads wrongly matched');
+
+        List<Account> accListFromDB = [SELECT Name, (SELECT Company FROM LEADS__r) FROM ACCOUNT];
+
+        for (Account acc : accListFromDB){
+            if(acc.Name == 'Logistics International'){
+                System.assertEquals('Logistics', acc.Leads__r[0].Company, 'Wrong Match Expected Logitics but got ' + acc.Leads__r[0].Company);
+            } else if (acc.name == 'Innovative Technologies'){
+                System.assertEquals('Innovative Tech', acc.Leads__r[0].Company, 'Wrong Match Expected Innovative Tech, but got ' + acc.Leads__r[0].Company);
+            } else {
+                System.assertEquals('GlobalTech', acc.Leads__r[0].Company, 'Wrong Match Expected GlobalTech, but got ' + acc.Leads__r[0].Company);
+            }
+        }
     }
 }
