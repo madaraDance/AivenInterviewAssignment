@@ -2,11 +2,31 @@
 
    ## Table of Contents
    - [Solution Overview](#solution-overview)
-   - [Salesforce Project Deployment Guide](#salesforce-project-deployment-guide)
-   - [Package Installation](#leadtoaccountmatching-package-installation-guide)
+   - [Deployment and Installation Options](#deployment-and-installation-options)
+      - [Salesforce Project Deployment Guide](#salesforce-project-deployment-guide)
+      - [Package Installation Guide](#leadtoaccountmatching-package-installation-guide)
    - [Testing](#testing)
 
 # Solution Overview
+
+## Deployment and Installation Options
+
+This solution offers two methods of setup:
+
+### Option 1: Direct Deployment from the Repository
+
+- **Who should use this?** Users who want to modify the source code or deploy the solution directly from a GitHub repository.
+- **What does it involve?** Using the Salesforce CLI to deploy metadata files to your Salesforce org.
+
+### Option 2: Package Installation
+
+- **Who should use this?** Users who prefer a quick, straightforward installation without dealing with the source code.
+- **What does it involve?** Installing a pre-packaged version of the solution via a unique installation link.
+
+### Instructions for Each Option:
+
+- If you prefer **direct deployment**, follow the [Salesforce Project Deployment Guide](#salesforce-project-deployment-guide).
+- If you prefer **package installation**, follow the [LeadToAccountMatching Package Installation Guide](#leadtoaccountmatching-package-installation-guide).
 
 ## Data Model Changes
 
