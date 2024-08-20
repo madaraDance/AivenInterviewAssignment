@@ -146,6 +146,12 @@ This solution offers two methods of setup:
      - **Assertions:** Ensure no incorrect matches for edge cases.
      - **Expected Outcome:** No wrong matches should occur for minimal similarity cases.
 
+   - **completeTriggerHandlerTest**
+     - **Purpose:** Validate that Leads are correctly matched to Accounts using exact name, domain, and partial name matching.
+     - **Setup:** Create accounts and leads to be match with eachother.
+     - **Assertions:** Ensure evertyrhing was match and that no incorrect matches were asigned.
+     - **Expected Outcome:** Leads are accurately matched to their corresponding Accounts without errors.
+
 #### 2.DomainExtractorTest
 
    - **DomainExtractorFromAccountWebSiteTest**

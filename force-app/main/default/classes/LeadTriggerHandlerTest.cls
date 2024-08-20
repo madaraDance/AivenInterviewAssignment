@@ -112,14 +112,14 @@ private class LeadTriggerHandlerTest {
 
     @isTest
     static void completeTriggerHadlerTest(){
-        // Create Accounts with varying names to test partial matching.
+        // Create Accounts with varying names to test exact name, domain amd partial matching.
         Account acc1 = TestDataFactory.createCustomAccount('Logistics International', null);
         Account acc3 = TestDataFactory.createCustomAccount('Innovative Technologies', 'www.inntech.com');
         Account acc2 = TestDataFactory.createCustomAccount('GlobalTech Solutions', null);
 
         insert new List<Account>{acc1, acc2, acc3};
 
-        // Create Leads with company names that will partially match the Accounts.
+        // Create Leads with company names that will match the Accounts.
         Lead lead1 = TestDataFactory.createCustomLead('John', 'Smith', 'Logistics', 'contacted', 'john@logint.com'); //Exact Name Match
         Lead lead2 = TestDataFactory.createCustomLead('Jane', 'Doe', 'Innovative Tech', 'contacted', 'sarah@inntech.com'); // Domain match
         Lead lead3 = TestDataFactory.createCustomLead('Jim', 'Brown', 'GlobalTech', 'contacted', 'jim@globalinnovation.com'); // Partial Match
