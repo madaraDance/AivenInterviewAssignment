@@ -241,7 +241,7 @@ Before you begin, ensure you have the following:
       https://login.salesforce.com/packaging/installPackage.apexp?p0=04tQy0000002OSr
       ```
    2. Set the setting you want and click Install.
-   ![alt text](image.png)
+   ![alt text](images/image.png)
 
 ## Step 2: Post-Installation
 
@@ -273,11 +273,11 @@ To ensure the solution works correctly, follow these steps to run the provided t
 
 1. **Open the Developer Console**:
    - Navigate to and open the Developer Console in your Salesforce Org.
-   ![alt text](image-1.png)
+   ![alt text](images/image-1.png)
 
 2. **Run All Tests**:
    - In the Developer Console, click on **"Test"** in the upper navigation menu and select **"Run All"** from the dropdown.
-   ![alt text](image-2.png)
+   ![alt text](images/image-2.png)
 
 3. **Check Test Results**:
    - After the tests have executed, go to the **"Tests"** tab in the bottom menu.
