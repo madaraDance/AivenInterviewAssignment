@@ -167,6 +167,16 @@ This solution offers two methods of setup:
       - **Assertions:** Ensure domains are correctly extracted (company.com, comapny.com.uk, parentCompany.company.com).
       - **Expected Outcome:** Domains are in expected format.
 
+## Custom Reports and Dashboards 
+
+### Reports
+   1. Leads Mathced to Account Report shows how many leads were trought the whole time.
+   2.Today's Leads Match Percent shows percentage of matched lead that were created today.
+
+### Dashboards
+   1. Lead Matching Dashboard utilies both of the reports mentioned above.
+![alt text](images/image6.png)
+
 
 # Salesforce Project Deployment Guide
 
